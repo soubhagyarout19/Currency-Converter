@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (min-width: 400px){
+        body{
+            background-image: url(Finance.png);
+            background-repeat: no-repeat;
+            height: auto;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            margin: 0;
+        }
+    }
+    form{
+        align-items: center;
+    }
+        
+    </style>
+</head>
+<body>
+    <form name="sdr">
+        <input type="number" placeholder="Enter Ammount in INR" name="sdr1">
+        <select name="Currency" id="opn">
+            <option value="INR">INR</option>
+            <option value="USD">USD</option>
+            <option value="EURO">EURO</option>
+            <option value="JPY">JPY</option>
+            <option value="AED">AED</option>
+            <option value="PKR">PKR</option>
+        </select>
+        <input type="button" onclick="convert()" value="Convert">
+        <p id="sudo" style="font-size:20px;color:green;"></p>
+    </form>  
+</body>
+<script>
+        function convert(){
+            let val = document.sdr.sdr1.value;
+            var ind = document.getElementById("opn").selectedIndex;
+            var opt = document.getElementsByTagName("option")[ind].value;
+            usd = val*79.40 + " INR";
+            inr = val*1 + " INR";
+            euro = val*80.88 + " INR";
+            jpy = val*0.56729 + "INR";
+            aed = val*21.6609 + "INR";
+            pkr = val*0.36245 + "INR";
+            if(opt == "INR"){
+                document.getElementById("sudo").innerHTML = inr;
+            }
+            else if(opt == "USD"){
+                document.getElementById("sudo").innerHTML = usd;
+            }
+            else if(opt == "JPY"){
+                document.getElementById("sudo").innerHTML = jpy;
+            }
+            else if(opt == "AED"){
+                document.getElementById("sudo").innerHTML = aed;
+            }
+            else if(opt == "PKR"){
+                document.getElementById("sudo").innerHTML = pkr;
+            }
+            else{
+                document.getElementById("sudo").innerHTML = euro;  
+            }
+        }
+</script>
+</html>
